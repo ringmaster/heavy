@@ -1,0 +1,1 @@
+<div class="headlines"><?php foreach($content->posts as $post) echo $theme->content($post, 'headline'); ?></div>

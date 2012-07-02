@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pluggable type="theme">
+	<name>Heavy</name>
+	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
+	<author url="http://asymptomatic.net/">Owen Winkler</author>
+	<url>http://asymptomatic.net</url>
+	<version>1.0</version>
+	<template_engine>rawphpengine</template_engine>
+	<description><![CDATA[Heavy is a responsive news theme for Habari that uses lots of image space.]]></description>
+	<guid>ccad663f-dd39-4993-8734-487d2d8e8291</guid>
+	<parent>Wazi</parent>
+	
+	<areas>
+		<area name="nav">
+			<description><![CDATA[The navigation area]]></description>
+		</area>
+		<area name="top_content">
+			<description><![CDATA[Above the main content area]]></description>
+		</area>
+		<area name="sidebar">
+			<description><![CDATA[The sidebar area]]></description>
+		</area>
+		<area name="footer">
+			<description><![CDATA[The footer area]]></description>
+		</area>
+	</areas>
+
+	<!--requires>
+		<feature url="foo">foo</feature>
+	</requires-->
+</pluggable>
