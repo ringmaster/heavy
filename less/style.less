@@ -13,12 +13,13 @@
 
 @menu-background: #eaeaea;
 @menu-background-hover: #e4e4e4;
-@linkcolor: #76abcc;
+@linkcolor: #990000;
 @headline-tint: #f6f6f6;
+@metadata: desaturate(lighten(@linkcolor, 20%), 30%);
 
 
 @import 'grid.less';
-@import url(http://fonts.googleapis.com/css?family=Quattrocento);
+@import url('http://fonts.googleapis.com/css?family=Quattrocento+Sans:400,700|Quattrocento:400,700');
 
 @import 'layout.less';
 
@@ -57,6 +58,7 @@ body {
 /* Comments and Comment Form */
 #content .comments {
 	clear: both;
+	margin-left: 20px;
 
 	header.comment-meta {
 		margin-bottom: 10px;
@@ -76,7 +78,7 @@ body {
 	}
 
 	.comment-author span[itemprop="name"]::before {
-		content: "By ";
+		content: "By&nbsp;";
 	}
 
 	.moderated {
@@ -108,6 +110,7 @@ label {
 textarea,input[type=text],input[type=email],input[type=url] {
 	.column(4);
 	box-sizing: border-box;
+	-moz-box-sizing: border-box;
 }
 
 .formcontrol {
@@ -149,57 +152,83 @@ ul.messages {
 #header {
 	border-bottom: 4px solid #bbb;
 
+	background: white url('../images/ra_logo.gif') no-repeat;
+	background-position: -20px -20px;
+
 	hgroup {
 		text-align: left;
-		border-bottom: 1px dotted #ddd;
-		margin: 0 0 5px;
+		margin: 0;
 
 		h1 {
 			padding: 0;
 			margin: 0;
+			a {
+				display:block;
+				text-indent: -9999px;
+				width: 400px;
+				height: 125px;
+			}
 		}
 		h2 {
 			font-size: 1.0em;
 			padding: 0;
 			margin: 0;
 			color: #999;
+			display: none;
 		}
 	}
 }
 
 #header nav {
 	ol {
-		margin: 0px;
+		margin: 0 0 0 20px;
 		padding: 0px;
+		border-left: 1px dotted #999;
+		height: 24px;
 	}
 	li {
+		border-right: 1px dotted #999;
 		list-style: none;
 		display: block;
 		float: left;
-		margin: 0 10px 0 0;
+		margin: 0;
+	}
+	ol ol {
+		margin-left: 0px;
+		height: auto;
 	}
 
-	margin: 0 0 0 20px;
-	padding: 0 0 5px 10px;
+	margin: 0;
+	padding: 0;
+//	border-top: 1px dotted #999;
+	background-color: rgba(255, 255, 255, 0.9);
 }
 
 #top_content {
 	background: @headline-tint;
 	overflow: hidden;
+	margin-bottom: 10px;
+
 	h1 {
 		font-size: 1.2em;
-		font-weight: normal;
-		margin: 20px 0px 20px 20px;
+		font-weight: bold;
+		margin: 20px 0px 10px 20px;
 	}
 
 	section {
+		.clearfix();
 		margin: 0px;
+	}
+	.block-type-headlines {
+		background: @headline-tint url('../images/ra_logo_85.gif') no-repeat;
+		background-position: -20px -174px;
 	}
 	.headlines {
 //		width: 500%;
 		margin-left: 1px;
 		article.post {
 			box-sizing: border-box;
+			-moz-box-sizing: border-box;
 //			width: 5%;
 			float: left;
 			border-right: 1px dotted #ccc;
@@ -225,8 +254,35 @@ ul.messages {
 	}
 }
 
-#posts {
+@media only screen and (max-width: 480px) {
+	body #header {
+		background: white url('../images/ra_logo_sm.gif') no-repeat;
+		background-position: -20px -20px;
+		hgroup {
+			height: 50px;
+		}
+	}
+}
+
+#blank, #posts {
 	clear: both;
+
+	.content {
+		line-height: 1.4em;
+		margin: 0px 20px;
+		blockquote {
+			margin: 1em 0px;
+			font-family: "Quattrocento Sans";
+			padding: 5px 20px;
+			background-color: #EFEFEF;
+			box-shadow: 0px 2px 5px #666;
+		}
+	}
+}
+
+#blank {
+	padding: 0px 20px;
+	box-sizing: border-box;
 }
 
 #content {
@@ -235,6 +291,7 @@ ul.messages {
 		h1 {
 			margin: 0;
 			font-size: 1.8em;
+			font-family: "Quattrocento Sans";
 		}
 		.metadata {
 			margin: 0;
@@ -245,14 +302,16 @@ ul.messages {
 			margin: 0;
 		}
 	}
-	.content img {
-		margin: 0px;
+	.content {
+		img {
+			margin: 0px;
+		}
 	}
 
 	.post .pubdata, .post .tags {
 		text-transform: uppercase;
 		font-size: small;
-		color: #7F9FB9;
+		color: @metadata;
 	}
 
 	.post .tags::before {
@@ -308,4 +367,14 @@ ul.messages {
 }
 */
 
+.colorbar {
+	margin-bottom: 20px;
+	width: 100%;
+	overflow: hidden;
+	height: 50px;
+}
 
+.colorbar .color {
+	border-top: 15px solid white;
+	border-bottom: 15px solid white;
+}

@@ -55,6 +55,18 @@ class HeavyTheme extends WaziTheme
 		$block->posts = Posts::get('headlines');
 	}
 
+	public function filter_get_scopes($scopes)
+	{
+		$scope = new stdClass();
+		$scope->criteria = array(
+			array('request', 'display_home'),
+		);
+		$scope->name = 'Homepage';
+		$scope->id = 13;
+		$scopes['heavily_homepage'] = $scope;
+		return $scopes;
+	}
+
 	/**
 	 * Add the "headlines" preset to the list of presets
 	 * @param array $presets
@@ -99,6 +111,7 @@ $(function(){
 CAPTION_SCRIPT;
 
 	}
+
 }
 
 ?>
