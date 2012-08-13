@@ -26,6 +26,7 @@ class HeavyTheme extends WaziTheme
 //			Session::error('This is a <b>sample error</b>');
 //			Session::notice('This is a <b>sample notice</b> for ' . $_SERVER['REQUEST_URI']);
 
+			Stack::add('template_header_javascript', 'https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js', 'jquery');
 			Stack::add('template_header_javascript', $theme->get_url('/less/less-1.3.0.min.js'), 'less');
 			Stack::add('template_stylesheet', array($theme->get_url('/less/style.less'), null, array('type'=> null, 'rel' => 'stylesheet/less')), 'style');
 		}
@@ -74,7 +75,7 @@ class HeavyTheme extends WaziTheme
 	 */
 	public function filter_posts_get_all_presets($presets)
 	{
-		$presets['headlines'] = array( 'content_type' => 'entry', 'status' => 'published', 'tags:term' => 'headline' );
+		$presets['headlines'] = array( 'content_type' => 'entry', 'status' => 'published', 'vocabulary' => array('tags:term' => 'headline' ) );
 		return $presets;
 	}
 
